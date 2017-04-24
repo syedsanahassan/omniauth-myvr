@@ -10,14 +10,14 @@ module OmniAuth
         BASE_SCOPE_URL = "http://local.api.myvr.com:8000/auth/"
         option :client_options, {
           :site          => 'http://local.myvr.com:8000/',
-          :authorize_url => 'http://local.myvr.com:8000/connect/oauth/auth',
+          :authorize_url => 'http://local.myvr.com:8000/connect/oauth/auth/',
           :token_url     => 'http://api.local.myvr.com:8000/oauth/token/'
         }
       else
         BASE_SCOPE_URL = "https://api.myvr.com/auth/"
         option :client_options, {
           :site          => 'https://myvr.com/',
-          :authorize_url => 'https://myvr.com/connect/oauth/auth',
+          :authorize_url => 'https://myvr.com/connect/oauth/auth/',
           :token_url     => 'https://api.myvr.com/oauth/token/'
         }
       end
