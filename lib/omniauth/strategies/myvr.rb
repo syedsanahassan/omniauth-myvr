@@ -1,7 +1,4 @@
-require 'multi_json'
-require 'jwt'
-require 'omniauth/strategies/oauth2'
-require 'uri'
+require "omniauth-oauth2"
 
 module OmniAuth
   module Strategies
@@ -20,12 +17,14 @@ module OmniAuth
       option :authorize_params, {grant_type: 'authorization_code'}
 
       def build_access_token
-        token_params = {
-          :parse => true
-        }
+        token_params = { }
         verifier = request.params['code']
         
         client.auth_code.get_token(verifier, token_params)
+      end
+      
+      credentials do
+        access_token.params
       end
       
       # Fixes regression in omniauth-oauth2 v1.4.0 by
